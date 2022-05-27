@@ -1,7 +1,19 @@
 <?php
 
-class Image
+class Write_To_Image
 {
+    /**
+     * Creates a new instance
+     *
+     * @param mixed $file
+     * @param mixed $image_type
+     */
+    public function __construct($file = null, $image_type = "image/jpeg")
+    {
+        $this->driver = $driver;
+        $this->core = $core;
+    }
+    
     function file()
     {
         if (isset($this)) {
