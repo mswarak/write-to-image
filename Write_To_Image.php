@@ -10,11 +10,18 @@ class Write_To_Image
     protected $file;
 
     /**
-     * Image MIME Content media type
+     * Image MIME content media type
      *
      * @var mixed
      */
     protected $image_type;
+    
+    /**
+     * text content as a list
+     *
+     * @var mixed
+     */
+    protected $text_list;
     
     /**
      * Creates a new instance
@@ -28,15 +35,49 @@ class Write_To_Image
         $this->image_type = $image_type;
     }
     
-    function file()
+    function text_rtl()
     {
-        if (isset($this)) {
-            echo '$this is defined (';
-            echo get_class($this);
-            echo ")\n";
-        } else {
-            echo "\$this is not defined.\n";
-        }
+        //
+    }
+    
+    function text_center()
+    {
+        //
+    }
+    
+    function text_ltr()
+    {
+        //
+    }
+    
+    function save()
+    {
+        //
+    }
+    
+    function encode()
+    {
+        //
+    }
+    
+    protected function ImageTTFCenter($image, $text, $font, $size, $angle = 0)
+    {
+        $xi = imagesx($image);
+        $box = imagettfbbox($size, $angle, $font, $text);
+        $xr = abs(max($box[2], $box[4]));
+        $x = intval(($xi - $xr) / 2);
+
+        return $x;
+    }
+
+    protected function ImageTTFRight($image, $text, $font, $size, $angle = 0, $right = 0)
+    {
+        $xi = imagesx($image);
+        $box = imagettfbbox($size, $angle, $font, $text);
+        $xr = abs(max($box[2], $box[4]));
+        $x = intval(($xi - $xr)- $right);
+
+        return $x;
     }
 }
 
