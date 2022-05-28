@@ -85,11 +85,6 @@ class Write_To_Image
         //
     }
     
-    function encode()
-    {
-        //
-    }
-    
     protected function ImageTTFCenter($image, $text, $font, $size, $angle = 0)
     {
         $xi = imagesx($image);
