@@ -80,9 +80,15 @@ class Write_To_Image
         $text_list .= array("string" => $string, "fontsize" => $text_size, "xcord" => $xcord, "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
     }
     
+    function drow_text_to_image()
+    {
+        global $text_list;
+        //
+    }
+    
     function save()
     {
-        //
+        //drow_text_to_image()
     }
     
     protected function ImageTTFCenter($image, $text, $font, $size, $angle = 0)
