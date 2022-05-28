@@ -24,6 +24,13 @@ class Write_To_Image
     protected $text_list;
     
     /**
+     * image output content
+     *
+     * @var mixed
+     */
+    protected $image_output = "";
+    
+    /**
      * Creates a new instance
      *
      * @param mixed $file
