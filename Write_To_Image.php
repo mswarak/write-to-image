@@ -7,14 +7,14 @@ class Write_To_Image
      *
      * @var mixed
      */
-    protected $file;
+    protected $file = null;
 
     /**
      * Image MIME content media type
      *
      * @var mixed
      */
-    protected $image_type;
+    protected $image_type = array();
     
     /**
      * text content as a list
