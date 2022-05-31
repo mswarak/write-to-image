@@ -124,7 +124,18 @@ class Write_To_Image
     
     function save()
     {
+        global $image_obj;
         //drow_text_to_image()
+        
+        // Send Image to Browser
+        imagejpeg($jpg_image);
+        if($image_output != "")
+        {
+            imagejpeg($jpg_image, $image_output, 100);
+        }
+
+        // Clear Memory
+        imagedestroy($jpg_image);
     }
     
     protected function ImageTTFCenter($image, $text, $font, $size, $angle = 0)
