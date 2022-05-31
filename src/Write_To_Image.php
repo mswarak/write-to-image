@@ -8,6 +8,13 @@ class Write_To_Image
      * @var mixed
      */
     protected $file = null;
+    
+    /**
+     * Image object
+     *
+     * @var mixed
+     */
+    protected $image_obj = null;
 
     /**
      * Image MIME content media type
@@ -82,8 +89,37 @@ class Write_To_Image
     
     function drow_text_to_image()
     {
-        global $text_list;
-        //
+        global $image_obj, $text_list;
+        
+        // Create Image From Existing File
+        $image_obj = imagecreatefromjpeg($this->file);
+        
+        // loop text
+        foreach($text_list as $text_list_data)
+        {
+            if($text_list_data["font"] == "")
+            {
+                //$text_list_data["font"] = $font_path;
+            }
+
+            $color = imagecolorallocate($image_obj, $text_list_data["color_r"], $text_list_data["color_g"], $text_list_data["color_b"]);
+            $text = text_list_data["string"];
+            //$text = $Arabic->utf8Glyphs($text_list_data["string"]);
+            $xcord = $text_list_data["xcord"];
+            if($xcord == "center")
+            {
+                $xcord = ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
+            }
+            /*
+            if (strpos($xcord, 'right-') !== false)
+            {
+                $xcord_right = explode("right-", $xcord);
+                $xcord = ImageTTFRight($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord_right[1]);
+            }
+            */
+            //echo "<p>fontsize: {$text_list_data["fontsize"]}</p>";
+            imagettftext($image_obj, $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord, $text_list_data["ycord"], $color, $text_list_data["font"], $text);
+        }
     }
     
     function save()
