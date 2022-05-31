@@ -45,8 +45,12 @@ class Write_To_Image
      */
     public function __construct($file = null, $image_type = "image/jpeg")
     {
+        global $image_obj;
         $this->file = $file;
         $this->image_type = $image_type;
+        
+        // Create Image From Existing File
+        $image_obj = imagecreatefromjpeg($this->file);
     }
     
     function text_rtl()
@@ -54,9 +58,31 @@ class Write_To_Image
         //
     }
     
-    function text_center()
+    /**
+     * Creates a text with center align
+     *
+     * @param string $string the text value
+     * @param int $text_size an integer of the text font size in points
+     * @param int $ycord the y-ordinate sets the position of the fonts baseline
+     * @param int $color_rgb allocate a color for the text
+     * @param string $font the path to the TrueType font .ttf
+     * @param float $text_angle the text angle in degrees
+     */
+    function text_center($string, $text_size = 25, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0)
     {
-        //
+        global $text_list;
+        
+        $color_r = 0;
+        $color_g = 0;
+        $color_b = 0;
+        if(count($color_rgb) == 3)
+        {
+            $color_r = $color_rgb[0];
+            $color_g = $color_rgb[1];
+            $color_b = $color_rgb[2];
+        }
+        
+        $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => "center", "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
     }
     
     /**
@@ -91,9 +117,6 @@ class Write_To_Image
     {
         global $image_obj, $text_list;
         
-        // Create Image From Existing File
-        $image_obj = imagecreatefromjpeg($this->file);
-        
         // loop text
         foreach($text_list as $text_list_data)
         {
@@ -122,7 +145,8 @@ class Write_To_Image
         }
     }
     
-    function save()
+    
+    function preview()
     {
         global $image_obj;
 		
@@ -133,10 +157,21 @@ class Write_To_Image
         
         // Send Image to Browser
         imagejpeg($image_obj);
-        if($this->image_output != "")
-        {
-            imagejpeg($image_obj, $this->image_output, 100);
-        }
+
+        // Clear Memory
+        imagedestroy($image_obj);
+    }
+    
+    function save($image_output)
+    {
+        global $image_obj;
+        
+        $this->image_output = $image_output;
+                
+        $this->drow_text_to_image();
+        
+        // Save Image to file
+        imagejpeg($image_obj, $this->image_output, 100);
 
         // Clear Memory
         imagedestroy($image_obj);
