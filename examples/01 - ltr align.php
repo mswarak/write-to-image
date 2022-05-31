@@ -1,4 +1,5 @@
 <?php
+// call Write_To_Image
 require_once '../src/Write_To_Image.php';
 $image = new Write_To_Image('img.jpg');
 
