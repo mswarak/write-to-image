@@ -84,7 +84,7 @@ class Write_To_Image
             $color_b = $color_rgb[2];
         }
         
-        $text_list .= array("string" => $string, "fontsize" => $text_size, "xcord" => $xcord, "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
+        $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => $xcord, "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
     }
     
     function drow_text_to_image()
@@ -103,12 +103,12 @@ class Write_To_Image
             }
 
             $color = imagecolorallocate($image_obj, $text_list_data["color_r"], $text_list_data["color_g"], $text_list_data["color_b"]);
-            $text = text_list_data["string"];
+            $text = $text_list_data["string"];
             //$text = $Arabic->utf8Glyphs($text_list_data["string"]);
             $xcord = $text_list_data["xcord"];
             if($xcord == "center")
             {
-                $xcord = ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
+                $xcord = $this->ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
             }
             /*
             if (strpos($xcord, 'right-') !== false)
@@ -125,7 +125,11 @@ class Write_To_Image
     function save()
     {
         global $image_obj;
-        drow_text_to_image();
+		
+        //Set the Content Type
+        header('Content-type: image/jpeg');
+                
+        $this->drow_text_to_image();
         
         // Send Image to Browser
         imagejpeg($image_obj);
