@@ -53,9 +53,38 @@ class Write_To_Image
         $image_obj = imagecreatefromjpeg($this->file);
     }
     
+    
+    /**
+    * Creates a text with right align
+    *
+    * @param string $string the text value
+    * @param int $text_size an integer of the text font size in points
+    * @param int $xcord the x-ordinate sets the position of the fonts baseline
+    * @param int $ycord the y-ordinate sets the position of the fonts baseline
+    * @param int $color_rgb allocate a color for the text
+    * @param string $font the path to the TrueType font .ttf
+    * @param float $text_angle the text angle in degrees
+    */
     function text_rtl($string, $text_size = 25, $xcord = 0, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = true)
     {
-        //
+        global $text_list;
+        
+        $color_r = 0;
+        $color_g = 0;
+        $color_b = 0;
+        if(count($color_rgb) == 3)
+        {
+            $color_r = $color_rgb[0];
+            $color_g = $color_rgb[1];
+            $color_b = $color_rgb[2];
+        }
+        
+        if($arabic_uni == true)
+        {
+            $string = text2uni($string);
+        }
+        
+        $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => "right-{$xcord}", "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
     }
     
     /**
