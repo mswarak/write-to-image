@@ -53,7 +53,7 @@ class Write_To_Image
         $image_obj = imagecreatefromjpeg($this->file);
     }
     
-    function text_rtl()
+    function text_rtl($string, $text_size = 25, $xcord = 0, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = true)
     {
         //
     }
@@ -68,7 +68,7 @@ class Write_To_Image
     * @param string $font the path to the TrueType font .ttf
     * @param float $text_angle the text angle in degrees
     */
-    function text_center($string, $text_size = 25, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0)
+    function text_center($string, $text_size = 25, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = false)
     {
         global $text_list;
         
@@ -80,6 +80,11 @@ class Write_To_Image
             $color_r = $color_rgb[0];
             $color_g = $color_rgb[1];
             $color_b = $color_rgb[2];
+        }
+        
+        if($arabic_uni == true)
+        {
+            $string = text2uni($string);
         }
         
         $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => "center", "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
@@ -96,7 +101,7 @@ class Write_To_Image
     * @param string $font the path to the TrueType font .ttf
     * @param float $text_angle the text angle in degrees
     */
-    function text_ltr($string, $text_size = 25, $xcord = 0, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0)
+    function text_ltr($string, $text_size = 25, $xcord = 0, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = false)
     {
         global $text_list;
         
@@ -108,6 +113,11 @@ class Write_To_Image
             $color_r = $color_rgb[0];
             $color_g = $color_rgb[1];
             $color_b = $color_rgb[2];
+        }
+        
+        if($arabic_uni == true)
+        {
+            $string = text2uni($string);
         }
         
         $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => $xcord, "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
