@@ -50,6 +50,14 @@ class Write_To_Image
         $this->file = $file;
         $this->image_type = $image_type;
         
+        if($image_type == "image/jpeg")
+        {
+            if (str_contains($file, '.jpg'))
+            {
+                throw new Exception("Only jpg images are supported");
+            }
+        }
+        
         // Create Image From Existing File
         $image_obj = imagecreatefromjpeg($this->file);
     }
