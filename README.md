@@ -16,7 +16,7 @@ OR
 require_once '../src/Write_To_Image.php';
 ```
 
-## Run
+## Usage
 ```
 // load Write_To_Image
 use mswarak\Write_To_Image;
