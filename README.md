@@ -30,6 +30,6 @@ $image->text_ltr("test 02", 25, 250, 250, array(0,0,0), dirname(__FILE__) . "/ar
 $image->preview();
 ```
 
-### Credits :
+### Credits
 - [***Intervention / image***](https://github.com/Intervention/image)
 - [***word2uni***](https://github.com/Null78/word2uni/blob/main/word2uni.php)
