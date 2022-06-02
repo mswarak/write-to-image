@@ -5,7 +5,7 @@ $ git clone https://github.com/mswarak/write-to-image.git
 ```
 
 ## Installation
-This project using composer.
+This project using composer
 ```
 composer require mswarak/write-to-image
 ```
