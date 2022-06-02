@@ -11,7 +11,8 @@ require_once '../src/Write_To_Image.php';
 
 - Run
 ```
-// load Write_To_Image
+// load Write_To_
+use msWarak\Write_To_Image;
 $image = new Write_To_Image('img.jpg');
 
 // add text
