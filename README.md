@@ -1,7 +1,7 @@
 # write-to-image
 - Clone this repository
 ```
-$ git clone https://github.com/msWarak/write-to-image.git
+$ git clone https://github.com/mswarak/write-to-image.git
 ```
 
 - Install
@@ -12,7 +12,7 @@ require_once '../src/Write_To_Image.php';
 - Run
 ```
 // load Write_To_Image
-use msWarak\Write_To_Image;
+use mswarak\Write_To_Image;
 $image = new Write_To_Image('img.jpg');
 
 // add text
