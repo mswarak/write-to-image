@@ -1,5 +1,5 @@
 {
-  "name": "msWarak/write-to-image",
+  "name": "mswarak/write-to-image",
   "description": "Add a text into jpg images with customized align (ltr, center and rtl)",
   "type": "library",
   "require": {
