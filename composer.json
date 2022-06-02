@@ -1,0 +1,24 @@
+{
+  "name": "msWarak/write-to-image",
+  "description": "Add a text into jpg images with customized align (ltr, center and rtl)",
+  "type": "library",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mansur Worak",
+      "email": "mansour.worak@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Write_To_Image\\": "src/"
+    },
+    "files": [
+      "src/Write_To_Image.php"
+    ]
+  }
+}
