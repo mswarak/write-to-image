@@ -54,7 +54,6 @@ class Write_To_Image
         $image_obj = imagecreatefromjpeg($this->file);
     }
     
-    
     /**
     * Creates a text with right align
     *
@@ -153,7 +152,10 @@ class Write_To_Image
         $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => $xcord, "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
     }
     
-    function drow_text_to_image()
+    /**
+    * Draw all text data into the image file
+    */
+    function draw_text_to_image()
     {
         global $image_obj, $text_list;
         
@@ -193,7 +195,7 @@ class Write_To_Image
         //Set the Content Type
         header('Content-type: image/jpeg');
                 
-        $this->drow_text_to_image();
+        $this->draw_text_to_image();
         
         // Send Image to Browser
         imagejpeg($image_obj);
@@ -208,7 +210,7 @@ class Write_To_Image
         
         $this->image_output = $image_output;
                 
-        $this->drow_text_to_image();
+        $this->draw_text_to_image();
         
         // Save Image to file
         imagejpeg($image_obj, $this->image_output, 100);
