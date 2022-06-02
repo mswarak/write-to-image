@@ -52,10 +52,16 @@ class Write_To_Image
         
         if($image_type == "image/jpeg")
         {
+            if (strpos($file, '.jpg') === false)
+            {
+                throw new Exception("Only jpg images are supported");
+            }
+            /*
             if (str_contains($file, '.jpg'))
             {
                 throw new Exception("Only jpg images are supported");
             }
+            */
         }
         
         // Create Image From Existing File
