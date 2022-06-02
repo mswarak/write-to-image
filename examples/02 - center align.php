@@ -1,6 +1,6 @@
 <?php
 require_once '../src/Write_To_Image.php';
-use msWarak\Write_To_Image;
+use mswarak\Write_To_Image;
 
 $image = new Write_To_Image('img.jpg');
 
