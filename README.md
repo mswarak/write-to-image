@@ -4,7 +4,7 @@
 $ git clone https://github.com/mswarak/write-to-image.git
 ```
 
-- Installation
+## Installation
 This project using composer.
 ```
 composer require mswarak/write-to-image
@@ -16,7 +16,7 @@ OR
 require_once '../src/Write_To_Image.php';
 ```
 
-- Run
+## Run
 ```
 // load Write_To_Image
 use mswarak\Write_To_Image;
