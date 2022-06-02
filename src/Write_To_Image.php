@@ -1,4 +1,5 @@
 <?php
+namespace msWarak;
 
 class Write_To_Image
 {
