@@ -187,7 +187,10 @@ class Write_To_Image
         }
     }
     
-    
+    /**
+    * Preview the image to the browser
+    * @return object
+    */
     function preview()
     {
         global $image_obj;
@@ -204,6 +207,10 @@ class Write_To_Image
         imagedestroy($image_obj);
     }
     
+    /**
+    * Save the image to a file
+    * @return object
+    */
     function save($image_output)
     {
         global $image_obj;
@@ -219,6 +226,10 @@ class Write_To_Image
         imagedestroy($image_obj);
     }
     
+    /**
+    * Calculate image center point
+    * @return int
+    */
     protected function ImageTTFCenter($image, $text, $font, $size, $angle = 0)
     {
         $xi = imagesx($image);
@@ -229,6 +240,10 @@ class Write_To_Image
         return $x;
     }
 
+    /**
+    * Calculate image right point
+    * @return int
+    */
     protected function ImageTTFRight($image, $text, $font, $size, $angle = 0, $right = 0)
     {
         $xi = imagesx($image);
@@ -239,6 +254,10 @@ class Write_To_Image
         return $x;
     }
     
+    /**
+    * Convert Arabic string info a unicode encoding
+    * @return string
+    */
     protected function text2uni($text)
     {
         if (preg_match("/(^(?=.*[a-zA-Z])(?=.*[a-zA-Z]?)[ a-zA-Z]+$)/", $text))
@@ -266,6 +285,10 @@ class Write_To_Image
         return $out;
     }
 
+    /**
+    * Convert Arabic word info a unicode encoding
+    * @return string
+    */
     protected function word2uni($word)
     {
         if (strlen($word) <= 2)
@@ -667,5 +690,4 @@ class Write_To_Image
         return implode('',array_reverse($new_word));
     }
 }
-
 ?>
