@@ -18,7 +18,6 @@
       "email": "mansour.worak@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
       "Write_To_Image\\": "src/"
