@@ -171,9 +171,13 @@ class Write_To_Image
     */
     function text_clear()
     {
-        global $text_list;
+        global $image_obj, $text_list;
         
+        // Remove all text content
         $text_list = array();
+        
+        // Create Image From Existing File
+        $image_obj = imagecreatefromjpeg($this->file);
     }
     
     /**
