@@ -43,6 +43,7 @@ class Write_To_Image
      *
      * @param mixed $file
      * @param mixed $image_type
+     * @throws Exception if the image format not supported
      */
     public function __construct($file = null, $image_type = "image/jpeg")
     {
