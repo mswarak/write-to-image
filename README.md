@@ -31,6 +31,10 @@ $image->preview();
 ```
 
 ## Changelog
+**1.2.1 ( 2022/06/09 )**
+- Support multi-output file using text_clear function.
+- Fix bugs.
+
 **1.2.0 ( 2022/06/05 )**
 - Fix bugs.
 
@@ -45,6 +49,6 @@ $image->preview();
 **0.1-beta ( 2022/05/26 )**
 - First release.
 
-### Credits
+## Credits
 - [***Intervention / image***](https://github.com/Intervention/image)
 - [***word2uni***](https://github.com/Null78/word2uni/blob/main/word2uni.php)
