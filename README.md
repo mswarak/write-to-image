@@ -31,8 +31,19 @@ $image->preview();
 ```
 
 ## Changelog
--0.1-beta ( 2022/05/26 )
-First release.
+**1.2.0 ( 2022/06/05 )**
+- Fix bugs.
+
+**1.1 ( 2022/06/02 )**
+- Support rtl.
+- Improve Arabic encoding.
+- Fix bugs.
+
+**1.0 ( 2022/06/01 )**
+- The first stable version.
+
+**0.1-beta ( 2022/05/26 )**
+- First release.
 
 ### Credits
 - [***Intervention / image***](https://github.com/Intervention/image)
