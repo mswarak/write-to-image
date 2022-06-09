@@ -167,6 +167,16 @@ class Write_To_Image
     }
     
     /**
+    * Remove all text content
+    */
+    function text_clear()
+    {
+        global $text_list;
+        
+        $text_list = array();
+    }
+    
+    /**
     * Draw all text data into the image file
     */
     function draw_text_to_image()
