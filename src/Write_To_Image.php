@@ -186,7 +186,7 @@ class Write_To_Image
     */
     function set_default_font()
     {
-        //
+        global $font;
     }
     
     /**
