@@ -182,7 +182,7 @@ class Write_To_Image
     }
     
     /**
-    * ---
+    * Set a default font file
     */
     function set_default_font()
     {
