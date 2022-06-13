@@ -31,6 +31,10 @@ $image->preview();
 ```
 
 ## Changelog
+**1.2.2 ( 2022/06/13 )**
+- Support adding default font.
+- Support drawing circles.
+
 **1.2.1 ( 2022/06/09 )**
 - Support multi-output file using text_clear function.
 - Fix bugs.
