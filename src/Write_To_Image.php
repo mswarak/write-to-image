@@ -182,6 +182,14 @@ class Write_To_Image
     }
     
     /**
+    * ---
+    */
+    function set_default_font()
+    {
+        //
+    }
+    
+    /**
     * Draw all text data into the image file
     */
     function draw_text_to_image()
