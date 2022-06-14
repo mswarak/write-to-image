@@ -253,9 +253,9 @@ class Write_To_Image
     }
     
     /**
-    * Draw ellipse shapes into the image file
+    * Draw circle shape into the image file
     */
-    function draw_ellipse($xcord = 0, $ycord = 0, $width = 0, $height = 0, $background_color_rgb = array(0,0,0), $shape_color_rgb = array(255,255,255))
+    function draw_circle($xcord = 0, $ycord = 0, $width = 0, $height = 0, $background_color_rgb = array(255,255,255), $shape_color_rgb = array(0,0,0))
     {
         global $image_obj;
         
