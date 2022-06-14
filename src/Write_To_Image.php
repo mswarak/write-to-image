@@ -25,6 +25,13 @@ class Write_To_Image
     protected $image_type = array();
     
     /**
+     * Default font path
+     *
+     * @var mixed
+     */
+    protected $default_font = "";
+    
+    /**
      * text content as a list
      *
      * @var mixed
@@ -82,7 +89,7 @@ class Write_To_Image
     */
     function text_rtl($string, $text_size = 25, $xcord = 0, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = true)
     {
-        global $text_list;
+        global $text_list, $default_font;
         
         $color_r = 0;
         $color_g = 0;
@@ -97,6 +104,11 @@ class Write_To_Image
         if($arabic_uni == true)
         {
             $string = $this->text2uni($string);
+        }
+        
+        if($font == null)
+        {
+            $font = $default_font;
         }
         
         $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => "right-{$xcord}", "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
@@ -114,7 +126,7 @@ class Write_To_Image
     */
     function text_center($string, $text_size = 25, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = false)
     {
-        global $text_list;
+        global $text_list, $default_font;
         
         $color_r = 0;
         $color_g = 0;
@@ -129,6 +141,11 @@ class Write_To_Image
         if($arabic_uni == true)
         {
             $string = $this->text2uni($string);
+        }
+        
+        if($font == null)
+        {
+            $font = $default_font;
         }
         
         $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => "center", "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
@@ -147,7 +164,7 @@ class Write_To_Image
     */
     function text_ltr($string, $text_size = 25, $xcord = 0, $ycord = 0, $color_rgb = array(0,0,0), $font = null, $text_angle = 0, $arabic_uni = false)
     {
-        global $text_list;
+        global $text_list, $default_font;
         
         $color_r = 0;
         $color_g = 0;
@@ -162,6 +179,11 @@ class Write_To_Image
         if($arabic_uni == true)
         {
             $string = $this->text2uni($string);
+        }
+        
+        if($font == null)
+        {
+            $font = $default_font;
         }
         
         $text_list[] = array("string" => $string, "fontsize" => $text_size, "xcord" => $xcord, "ycord" => $ycord, "color_r" => $color_r, "color_g" => $color_g, "color_b" => $color_b, "font" => $font, "fontangle" => $text_angle);
@@ -183,10 +205,12 @@ class Write_To_Image
     
     /**
     * Set a default font file
+    * @param string $default_font the path to the TrueType font .ttf
     */
-    function set_default_font()
+    function set_default_font($default_font_path)
     {
-        global $font;
+        global $default_font;
+        $default_font = $default_font_path;
     }
     
     /**
