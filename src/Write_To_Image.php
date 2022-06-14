@@ -199,6 +199,7 @@ class Write_To_Image
     
     /**
     * Set a default font file
+    * 
     * @param string $default_font_path the path to the TrueType font .ttf
     */
     function set_default_font($default_font_path)
@@ -235,6 +236,15 @@ class Write_To_Image
     
     /**
     * Draw circle shape into the image file
+    *
+    * @param int $xcord the x-ordinate sets the position of the fonts baseline
+    * @param int $ycord the y-ordinate sets the position of the fonts baseline
+     * 
+    * @param string $string the text value
+    * @param int $text_size an integer of the text font size in points
+    * @param int $color_rgb allocate a color for the text
+    * @param string $font the path to the TrueType font .ttf
+    * @param float $text_angle the text angle in degrees
     */
     function draw_circle($xcord = 0, $ycord = 0, $width = 0, $height = 0, $background_color_rgb = array(255,255,255), $shape_color_rgb = array(0,0,0))
     {
