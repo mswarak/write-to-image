@@ -276,6 +276,48 @@ class Write_To_Image
     }
     
     /**
+    * Draw rectangle shape into the image file
+    */
+    function draw_rectangle($xcord = 0, $ycord = 0, $width = 0, $height = 0, $background_color_rgb = array(255,255,255), $shape_color_rgb = array(0,0,0))
+    {
+        global $image_obj;
+        
+        // color background
+        $color_background_r = 0;
+        $color_background_g = 0;
+        $color_background_b = 0;
+        if(count($background_color_rgb) == 3)
+        {
+            $color_background_r = $background_color_rgb[0];
+            $color_background_g = $background_color_rgb[1];
+            $color_background_b = $background_color_rgb[2];
+        }
+        
+        // shape color
+        $color_shape_r = 0;
+        $color_shape_g = 0;
+        $color_shape_b = 0;
+        if(count($shape_color_rgb) == 3)
+        {
+            $color_shape_r = $shape_color_rgb[0];
+            $color_shape_g = $shape_color_rgb[1];
+            $color_shape_b = $shape_color_rgb[2];
+        }
+        
+        // Select the background color.
+        $bg = imagecolorallocate($image_obj, $color_background_r, $color_background_g, $color_background_b);
+
+        // Fill the background with the color selected above.
+        imagefill($image_obj, 0, 0, $bg);
+
+        // Choose a color for the ellipse.
+        $col_ellipse = imagecolorallocate($image_obj, $color_shape_r, $color_shape_g, $color_shape_b);
+
+        // Draw the ellipse.
+        imageellipse($image_obj, $xcord, $ycord, $width, $height, $col_ellipse);
+    }
+    
+    /**
     * Preview the image to the browser
     * @return object
     */
