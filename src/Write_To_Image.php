@@ -220,31 +220,35 @@ class Write_To_Image
     {
         global $image_obj, $text_list;
         
-        // loop text
-        foreach($text_list as $text_list_data)
+        // have content
+        if(isset($text_list[0]))
         {
-            if($text_list_data["font"] == "")
+            // loop text
+            foreach($text_list as $text_list_data)
             {
-                //$text_list_data["font"] = $font_path;
-            }
+                if($text_list_data["font"] == "")
+                {
+                    //$text_list_data["font"] = $font_path;
+                }
 
-            $color = imagecolorallocate($image_obj, $text_list_data["color_r"], $text_list_data["color_g"], $text_list_data["color_b"]);
-            $text = $text_list_data["string"];
-            //$text = $Arabic->utf8Glyphs($text_list_data["string"]);
-            $xcord = $text_list_data["xcord"];
-            if($xcord == "center")
-            {
-                $xcord = $this->ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
+                $color = imagecolorallocate($image_obj, $text_list_data["color_r"], $text_list_data["color_g"], $text_list_data["color_b"]);
+                $text = $text_list_data["string"];
+                //$text = $Arabic->utf8Glyphs($text_list_data["string"]);
+                $xcord = $text_list_data["xcord"];
+                if($xcord == "center")
+                {
+                    $xcord = $this->ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
+                }
+                /*
+                if (strpos($xcord, 'right-') !== false)
+                {
+                    $xcord_right = explode("right-", $xcord);
+                    $xcord = ImageTTFRight($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord_right[1]);
+                }
+                */
+                //echo "<p>fontsize: {$text_list_data["fontsize"]}</p>";
+                imagettftext($image_obj, $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord, $text_list_data["ycord"], $color, $text_list_data["font"], $text);
             }
-            /*
-            if (strpos($xcord, 'right-') !== false)
-            {
-                $xcord_right = explode("right-", $xcord);
-                $xcord = ImageTTFRight($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord_right[1]);
-            }
-            */
-            //echo "<p>fontsize: {$text_list_data["fontsize"]}</p>";
-            imagettftext($image_obj, $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord, $text_list_data["ycord"], $color, $text_list_data["font"], $text);
         }
     }
     
