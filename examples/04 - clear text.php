@@ -4,9 +4,12 @@ use mswarak\Write_To_Image;
 
 $image = new Write_To_Image('img.jpg');
 
+// add default font
+$image->set_default_font(dirname(__FILE__) . "/arial.ttf");
+
 // add text
-$image->text_center("hi - 1st - 01", 25, 150, array(0,0,0), dirname(__FILE__) . "/arial.ttf");
-$image->text_center("hi - 1st - 02", 25, 350, array(0,0,0), dirname(__FILE__) . "/arial.ttf");
+$image->text_center("hi - 1st - 01", 25, 150);
+$image->text_center("hi - 1st - 02", 25, 350);
 
 // save image to file
 $image->save('output1.jpg');
@@ -15,8 +18,8 @@ $image->save('output1.jpg');
 $image->text_clear();
 
 // add text
-$image->text_center("hi - 2nd - 01", 25, 150, array(0,0,0), dirname(__FILE__) . "/arial.ttf");
-$image->text_center("hi - 2nd - 02", 25, 350, array(0,0,0), dirname(__FILE__) . "/arial.ttf");
+$image->text_center("hi - 2nd - 01", 25, 150);
+$image->text_center("hi - 2nd - 02", 25, 350);
 
 // save image to file
 $image->save('output2.jpg');
