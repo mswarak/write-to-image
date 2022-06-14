@@ -64,12 +64,6 @@ class Write_To_Image
             {
                 throw new Exception("Only jpg images are supported");
             }
-            /*
-            if (str_contains($file, '.jpg'))
-            {
-                throw new Exception("Only jpg images are supported");
-            }
-            */
         }
         
         // Create Image From Existing File
@@ -205,7 +199,7 @@ class Write_To_Image
     
     /**
     * Set a default font file
-    * @param string $default_font the path to the TrueType font .ttf
+    * @param string $default_font_path the path to the TrueType font .ttf
     */
     function set_default_font($default_font_path)
     {
@@ -226,27 +220,14 @@ class Write_To_Image
             // loop text
             foreach($text_list as $text_list_data)
             {
-                if($text_list_data["font"] == "")
-                {
-                    //$text_list_data["font"] = $font_path;
-                }
-
                 $color = imagecolorallocate($image_obj, $text_list_data["color_r"], $text_list_data["color_g"], $text_list_data["color_b"]);
                 $text = $text_list_data["string"];
-                //$text = $Arabic->utf8Glyphs($text_list_data["string"]);
                 $xcord = $text_list_data["xcord"];
                 if($xcord == "center")
                 {
                     $xcord = $this->ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
                 }
-                /*
-                if (strpos($xcord, 'right-') !== false)
-                {
-                    $xcord_right = explode("right-", $xcord);
-                    $xcord = ImageTTFRight($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord_right[1]);
-                }
-                */
-                //echo "<p>fontsize: {$text_list_data["fontsize"]}</p>";
+                
                 imagettftext($image_obj, $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord, $text_list_data["ycord"], $color, $text_list_data["font"], $text);
             }
         }
