@@ -1,5 +1,4 @@
 <?php
-namespace mswarak;
 
 /**
 * Write_To_Image is a sample class for write text to images
@@ -27,6 +26,7 @@ namespace mswarak;
 * @access   public
 */
 
+namespace mswarak;
 class Write_To_Image
 {
     /**
