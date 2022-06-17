@@ -21,7 +21,7 @@
 * $image->preview();
 *
 * @package  Example
-* @author   Mansur Saleh Warak mansour.worak@gmail.com
+* @author   Mansur Warak mansour.worak@gmail.com
 * @version  Release: 1.2.3
 * @access   public
 */
