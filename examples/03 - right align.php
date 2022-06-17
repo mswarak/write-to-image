@@ -9,10 +9,9 @@ $image->set_default_font(dirname(__FILE__) . "/arial.ttf");
 
 // add text
 $text = "السلام عليكم";
-$image->text_center($text, 25, 150, array(0,0,0), null, 0, false);
-$image->text_center($text, 25, 350, array(0,0,0), null, 0, true);
+$image->text_rtl($text, 25, 150, 200);
+$image->text_rtl($text, 25, 350, 200, array(0,0,0), null, 0, false);
 
 // preview image on browser
 $image->preview();
-
 ?>
