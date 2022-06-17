@@ -34,6 +34,10 @@ $image->preview();
 ```
 
 ## Changelog
+**1.2.3 ( 2022/06/17 )**
+- Support drawing rectangles.
+- Fix bugs.
+
 **1.2.2 ( 2022/06/13 )**
 - Support adding default font.
 - Support drawing circles.
