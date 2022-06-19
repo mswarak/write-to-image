@@ -347,17 +347,13 @@ class Write_To_Image
             $color_shape_b = $shape_color_rgb[2];
         }
         
-        // Select the background color.
-        $bg = imagecolorallocate($image_obj, $color_background_r, $color_background_g, $color_background_b);
-
-        // Fill the background with the color selected above.
-        imagefill($image_obj, 0, 0, $bg);
-
-        // Choose a color for the ellipse.
-        $col_ellipse = imagecolorallocate($image_obj, $color_shape_r, $color_shape_g, $color_shape_b);
+        // Select the colors.
+        $color_shape = imagecolorallocate($image_obj, $color_shape_r, $color_shape_g, $color_shape_b);
+        $color_background = imagecolorallocate($image_obj, $color_background_r, $color_background_g, $color_background_b);
 
         // Draw the ellipse.
-        imageellipse($image_obj, $xcord, $ycord, $width, $height, $col_ellipse);
+        imagefilledrectangle($image_obj, $xcord, $ycord, $width, $height, $color_background);
+        imagerectangle($image_obj, $xcord, $ycord, $width, $height, $color_shape);
     }
     
     /**
