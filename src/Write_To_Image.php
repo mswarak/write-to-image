@@ -30,54 +30,54 @@ namespace mswarak;
 class Write_To_Image
 {
     /**
-     * Image link
-     *
-     * @var mixed
-     */
+    * Image link
+    *
+    * @var mixed
+    */
     protected $file = null;
     
     /**
-     * Image object
-     *
-     * @var mixed
-     */
+    * Image object
+    *
+    * @var mixed
+    */
     protected $image_obj = null;
 
     /**
-     * Image MIME content media type
-     *
-     * @var mixed
-     */
+    * Image MIME content media type
+    *
+    * @var mixed
+    */
     protected $image_type = array();
     
     /**
-     * Default font path
-     *
-     * @var mixed
-     */
+    * Default font path
+    *
+    * @var mixed
+    */
     protected $default_font = "";
     
     /**
-     * text content as a list
-     *
-     * @var mixed
-     */
+    * text content as a list
+    *
+    * @var mixed
+    */
     protected $text_list;
     
     /**
-     * image output content
-     *
-     * @var mixed
-     */
+    * image output content
+    *
+    * @var mixed
+    */
     protected $image_output = "";
     
     /**
-     * Creates a new instance
-     *
-     * @param mixed $file
-     * @param mixed $image_type
-     * @throws Exception if the image format not supported
-     */
+    * Creates a new instance
+    *
+    * @param mixed $file
+    * @param mixed $image_type
+    * @throws Exception if the image format not supported
+    */
     public function __construct($file = null, $image_type = "image/jpeg")
     {
         global $image_obj;
