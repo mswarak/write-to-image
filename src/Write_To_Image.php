@@ -250,9 +250,16 @@ class Write_To_Image
                 $color = imagecolorallocate($image_obj, $text_list_data["color_r"], $text_list_data["color_g"], $text_list_data["color_b"]);
                 $text = $text_list_data["string"];
                 $xcord = $text_list_data["xcord"];
+                
                 if($xcord == "center")
                 {
                     $xcord = $this->ImageTTFCenter($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"]);
+                }
+                
+                if(strpos($xcord, 'right-') !== false)
+                {
+                    $xcord_right = explode("right-", $xcord);
+                    $xcord = $this->ImageTTFRight($image_obj, $text, $text_list_data["font"], $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord_right[1]);
                 }
                 
                 imagettftext($image_obj, $text_list_data["fontsize"], $text_list_data["fontangle"], $xcord, $text_list_data["ycord"], $color, $text_list_data["font"], $text);
