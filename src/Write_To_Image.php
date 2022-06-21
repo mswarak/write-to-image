@@ -272,12 +272,10 @@ class Write_To_Image
     *
     * @param int $xcord the x-ordinate sets the position of the fonts baseline
     * @param int $ycord the y-ordinate sets the position of the fonts baseline
-     * 
-    * @param string $string the text value
-    * @param int $text_size an integer of the text font size in points
-    * @param int $color_rgb allocate a color for the text
-    * @param string $font the path to the TrueType font .ttf
-    * @param float $text_angle the text angle in degrees
+    * @param int $width the shape width size
+    * @param int $height the shape height size
+    * @param int $background_color_rgb allocate a color for the shape background
+    * @param int $shape_color_rgb allocate a color for the shape borders
     */
     function draw_circle($xcord = 0, $ycord = 0, $width = 0, $height = 0, $background_color_rgb = array(255,255,255), $shape_color_rgb = array(0,0,0))
     {
