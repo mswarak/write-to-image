@@ -34,6 +34,10 @@ $image->preview();
 ```
 
 ## Changelog
+**1.2.4 ( 2022/06/26 )**
+- Support drawing lines.
+- Support switch color from hex to RGB.
+
 **1.2.3 ( 2022/06/17 )**
 - Support drawing rectangles.
 - Fix bugs.
