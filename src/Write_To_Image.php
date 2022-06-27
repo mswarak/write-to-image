@@ -74,8 +74,8 @@ class Write_To_Image
     /**
     * Creates a new instance
     *
-    * @param mixed $file
-    * @param mixed $image_type
+    * @param mixed $file image input file (template)
+    * @param mixed $image_type image format
     * @throws Exception if the image format not supported
     */
     public function __construct($file = null, $image_type = "image/jpeg")
@@ -394,6 +394,8 @@ class Write_To_Image
     
     /**
     * Save the image to a file
+    * 
+    * @param string $image_output The hexadecimal string to convert
     * @return object
     */
     function save($image_output)
