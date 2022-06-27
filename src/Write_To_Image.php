@@ -22,7 +22,7 @@
 *
 * @package  Example
 * @author   Mansur Warak mansour.worak@gmail.com
-* @version  Release: 1.2.3
+* @version  Release: 1.2.4
 * @access   public
 */
 
