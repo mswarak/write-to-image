@@ -268,6 +268,17 @@ class Write_To_Image
     }
     
     /**
+    * Convert hexadecimal color to decimal RGB
+    *
+    * @param string $hex_string The hexadecimal string to convert
+    * @return object
+    */
+    function convert_to_RGB($hex_string)
+    {
+        return hexdec($hex_string);
+    }
+    
+    /**
     * Draw circle shape into the image file
     *
     * @param int $xcord the x-ordinate sets the position of the fonts baseline
